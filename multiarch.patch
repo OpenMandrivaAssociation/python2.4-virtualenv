@@ -1,0 +1,19 @@
+--- virtualenv.py.bak	2010-09-05 23:23:59.481461959 -0400
++++ virtualenv.py	2010-09-05 23:24:35.923560786 -0400
+@@ -6,6 +6,7 @@
+ 
+ import sys
+ import os
++import commands
+ import optparse
+ import re
+ import shutil
+@@ -647,7 +648,7 @@
+         bin_dir = join(home_dir, 'bin')
+     else:
+         lib_dir = join(home_dir, 'lib', py_version)
+-        inc_dir = join(home_dir, 'include', py_version)
++        inc_dir = join(home_dir, 'include', commands.getoutput('/usr/bin/multiarch-platform'), py_version)
+         bin_dir = join(home_dir, 'bin')
+     return home_dir, lib_dir, inc_dir, bin_dir
+ 
